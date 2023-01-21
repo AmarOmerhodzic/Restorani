@@ -1,0 +1,53 @@
+﻿@model Restorani.Models.ViewModels.JeloVM
+
+<form method="post" asp-action="CreatePost">
+    <div class="border p-3">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group row">
+            <h2 class="text-black-50 pl-3">Dodaj Jelo</h2>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group row">
+                    <div class="col-4"><label asp-for="Jelo.Naziv"></label></div>
+                    <div class="col-4"><label asp-for="Jelo.Cijena"></label></div>
+                    <div class="col-4"><label asp-for="Jelo.Restorani"></label></div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <input asp-for="Jelo.Naziv" class="form-control" />
+                        <span asp-validation-for="Jelo.Naziv" class="text-danger"></span>
+                    </div>
+                    <div class="col-4">
+                        <input asp-for="Jelo.Cijena" class="form-control" />
+                        <span asp-validation-for="Jelo.Cijena" class="text-danger"></span>
+                    </div>
+                    <div class="col-4">
+                        <select asp-for="Jelo.RestoranId" asp-items="@Model.NameDropDown" class="form-control">
+                            <option selected></option>
+                        </select>
+                        <span asp-validation-for="Jelo.RestoranId" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-12 text-center row">
+                    <div class="col">
+                        <input type="submit" class="btn btn-info w-75 offset-2" value="Dodaj" />
+
+                    </div>
+                    <div class="col" style="margin-top:1em;">
+                        <a asp-action="Index" class="btn btn-danger w-75 offset-2">Nazad</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+    }

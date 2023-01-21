@@ -1,0 +1,40 @@
+﻿@model Restorani.Models.Jelo
+
+<div class="container p-3">
+
+    <br />
+    @if (Model != null)
+    {
+        <div class="col-6 text-right" style="margin-bottom: 2rem;">
+            <div class="row pt-4">
+                <div class="col pt-6">
+                    <h2 class="text-primary">Preporuka jela</h2>
+                </div>
+                <a asp-controller="Home" asp-action="Index" class="btn btn-outline-primary" style="margin-left: 1rem;">Predlozi</a>
+            </div>
+
+        </div>
+
+        <div class="card shadow-lg mx-auto" style="width: 20rem; height:auto; align-items:center;">
+            <div class="card-header">
+                <h5 class="text-primary">Restoran: @Model.Restorani.Naziv</h5>
+            </div>
+            <div class="card-body " >
+                <h5 class="card-text text-primary">Jelo: @Model.Naziv</h5>
+                <h6 class="card-text text-primary">Cijena: @Model.Cijena</h6>   
+            </div>
+            <div class="card-footer">
+                <p class="my-1 mb-2 text-muted">Adresa: @Model.Restorani.Adresa, Tel: @Model.Restorani.Telefon</p>
+
+            </div>
+        </div>
+    }
+    else
+    {
+        <h2>Nema jela u ponudi</h2>
+        <div class="col-6 text-right">
+            <a asp-controller="Jelo" asp-action="Create" class="btn btn-primary">Dodaj jelo</a>
+        </div>
+    }
+
+</div>
